@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="Q2CIIC" name="KModular" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
+  <MAINGROUP id="bxNTae" name="KModular">
+    <GROUP id="{7AF13855-0DE5-B7A6-43CD-8EB57E9FF641}" name="Panel">
+      <FILE id="mjsapW" name="KM_CenterPanel.cpp" compile="1" resource="0"
+            file="Source/KM_CenterPanel.cpp"/>
+      <FILE id="uBvTVg" name="KM_CenterPanel.h" compile="0" resource="0"
+            file="Source/KM_CenterPanel.h"/>
+      <FILE id="s10C4z" name="KM_CenterPanelMenuBar.cpp" compile="1" resource="0"
+            file="Source/KM_CenterPanelMenuBar.cpp"/>
+      <FILE id="Wxcb19" name="KM_CenterPanelMenuBar.h" compile="0" resource="0"
+            file="Source/KM_CenterPanelMenuBar.h"/>
+      <FILE id="wui0pK" name="KM_FxPanel.cpp" compile="1" resource="0" file="Source/KM_FxPanel.cpp"/>
+      <FILE id="bPiOls" name="KM_FxPanel.h" compile="0" resource="0" file="Source/KM_FxPanel.h"/>
+      <FILE id="Xv9eCv" name="KM_GainPanel.cpp" compile="1" resource="0"
+            file="Source/KM_GainPanel.cpp"/>
+      <FILE id="sss6Ah" name="KM_GainPanel.h" compile="0" resource="0" file="Source/KM_GainPanel.h"/>
+      <FILE id="wBZBOR" name="KM_MainPanel.cpp" compile="1" resource="0"
+            file="Source/KM_MainPanel.cpp"/>
+      <FILE id="HKBDsD" name="KM_MainPanel.h" compile="0" resource="0" file="Source/KM_MainPanel.h"/>
+      <FILE id="hZK63l" name="KM_PanelBase.cpp" compile="1" resource="0"
+            file="Source/KM_PanelBase.cpp"/>
+      <FILE id="nsm3Qt" name="KM_PanelBase.h" compile="0" resource="0" file="Source/KM_PanelBase.h"/>
+      <FILE id="OiFQJs" name="KM_TopPanel.cpp" compile="1" resource="0" file="Source/KM_TopPanel.cpp"/>
+      <FILE id="HBq7i2" name="KM_TopPanel.h" compile="0" resource="0" file="Source/KM_TopPanel.h"/>
+    </GROUP>
+    <GROUP id="{60CA75C9-3999-6790-B3C9-B3B6B9A4B2DF}" name="Helper">
+      <FILE id="VB1Tq8" name="KM_InterfaceDefines.h" compile="0" resource="0"
+            file="Source/KM_InterfaceDefines.h"/>
+      <FILE id="ZyEI53" name="KModular_helper.h" compile="0" resource="0"
+            file="Source/KModular_helper.h"/>
+    </GROUP>
+    <GROUP id="{D6B08AA8-5118-0970-250F-DC7C6A0585D1}" name="DSP">
+      <FILE id="uc3vU5" name="KM_delay.cpp" compile="1" resource="0" file="Source/KM_delay.cpp"/>
+      <FILE id="wceACm" name="KM_delay.h" compile="0" resource="0" file="Source/KM_delay.h"/>
+      <FILE id="y5jt6N" name="KM_gain.cpp" compile="1" resource="0" file="Source/KM_gain.cpp"/>
+      <FILE id="hfjTjq" name="KM_gain.h" compile="0" resource="0" file="Source/KM_gain.h"/>
+      <FILE id="SyuwPA" name="KM_LFO.cpp" compile="1" resource="0" file="Source/KM_LFO.cpp"/>
+      <FILE id="ptBxLp" name="KM_LFO.h" compile="0" resource="0" file="Source/KM_LFO.h"/>
+    </GROUP>
+    <GROUP id="{3BB57421-2D30-EB8E-F1A8-CFFC86A24DE3}" name="Source">
+      <FILE id="ZWa2gE" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="jUh358" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="L1xdxf" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="s3CLGz" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="NewProject"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="NewProject"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../modules"/>
+        <MODULEPATH id="juce_core" path="../../modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../modules"/>
+        <MODULEPATH id="juce_events" path="../../modules"/>
+        <MODULEPATH id="juce_graphics" path="../../modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../modules"/>
+        <MODULEPATH id="juce_osc" path="../../modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_osc" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <LIVE_SETTINGS>
+    <OSX/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>
