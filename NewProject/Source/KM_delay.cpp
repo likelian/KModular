@@ -56,7 +56,12 @@ void KM_delay::process(float* inAudio,
 {
     const float wet = inWetDry;
     const float dry = 1.0f - inWetDry;
-    const float feedbackMapped = juce::jmap(inFeedback, 0.0f, 1.0f, 0.0f, 0.95f); //avoid an infinite feedback, though there are ways to avoid that and also keep the 100% mapping
+    
+    float feedbackMapped = 0;
+    if ((int)inType==KM_DelayType_Delay){
+        feedbackMapped = juce::jmap(inFeedback, 0.0f, 1.0f, 0.0f, 1.20f); //avoid an infinite feedback, though there are ways to avoid that and also keep the 100% mapping
+    }
+    //const float feedbackMapped = juce::jmap(inFeedback, 0.0f, 1.0f, 0.0f, 0.95f); //avoid an infinite feedback, though there are ways to avoid that and also keep the 100% mapping
     
     //const double delayTimeModulation = 0.003 + (0.002 * inModBuffer[0]);
     
@@ -78,7 +83,9 @@ void KM_delay::process(float* inAudio,
         
         const double sample = getInterpolatedSample(delayTimeSamples);
         
-        mBuffer[mDelayIndex] = inAudio[i] + (mFeedbackSample * feedbackMapped);
+        //mBuffer[mDelayIndex] = inAudio[i] + (mFeedbackSample * feedbackMapped);
+        mBuffer[mDelayIndex] = tanh_clip(inAudio[i] + (mFeedbackSample * feedbackMapped));
+        
         
         mFeedbackSample = sample;
         

@@ -26,6 +26,7 @@ void KM_PanelBase:: paint(juce::Graphics& g)
     g.fillAll();
     
     g.setColour(juce::Colours::black);
-    g.drawRect(0, 0, getWidth(), getHeight(), 2);
+    //g.drawRect(0, 0, getWidth(), getHeight(), 2);
+    g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 2);
     
 }
