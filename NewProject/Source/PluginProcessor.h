@@ -15,6 +15,7 @@
 #include "KM_LFO.h"
 
 
+
 //==============================================================================
 /**
 */
@@ -57,12 +58,21 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+    
+    juce::AudioProcessorValueTreeState parameters;
 
 private:
     /** internal function */
+    
+    void InitializeParameters();
+    
     void InitializeDSP();
     
-    std::unique_ptr<KM_gain> mGain [2];
+    
+    
+    //std::unique_ptr<KM_gain> mGain [2];
+    std::unique_ptr<KM_gain> mInputGain [2];
+    std::unique_ptr<KM_gain> mOutputGain [2];
     std::unique_ptr<KM_LFO> mLFO [2];
     std::unique_ptr<KM_delay> mDelay [2];
     

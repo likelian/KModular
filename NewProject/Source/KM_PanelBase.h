@@ -12,6 +12,7 @@
 
 #include "JuceHeader.h"
 #include "PluginProcessor.h"
+#include "KM_InterfaceDefines.h"
 
 class KM_PanelBase
 : public juce::Component

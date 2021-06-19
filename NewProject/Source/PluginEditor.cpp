@@ -9,13 +9,19 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+
 //==============================================================================
 NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor (NewProjectAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
-    setSize (400, 300);
+    setSize(MAIN_PANEL_WIDTH,
+            MAIN_PANEL_HEIGHT);
+    
+    mMainPanel = new KM_MainPanel(&audioProcessor);
+    addAndMakeVisible(mMainPanel);
+
 }
 
 NewProjectAudioProcessorEditor::~NewProjectAudioProcessorEditor()

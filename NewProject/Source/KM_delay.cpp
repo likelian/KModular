@@ -47,6 +47,7 @@ void KM_delay::process(float* inAudio,
              float inTime,
              float inFeedback,
              float inWetDry,
+             float inType,
              float* inModBuffer,
              float* outAudio,
              int inNumSamplesToRender
@@ -60,12 +61,16 @@ void KM_delay::process(float* inAudio,
     //const double delayTimeModulation = 0.003 + (0.002 * inModBuffer[0]);
     
     //mTimeSmoothed = mTimeSmoothed  - KParameterSmoothingCoeff_Generic * (mTimeSmoothed - inModBuffer[0]);
+
     
     for (int i = 0; i < inNumSamplesToRender; i++){
         
-        const double delayTimeModulation = inTime + (0.002 * inModBuffer[i]);
-        
-        mTimeSmoothed = mTimeSmoothed - KParameterSmoothingCoeff_Fine * (mTimeSmoothed - delayTimeModulation);
+        if ((int)inType==KM_DelayType_Delay){
+            mTimeSmoothed = mTimeSmoothed - KParameterSmoothingCoeff_Fine * (mTimeSmoothed - inTime);
+        }else{
+            const double delayTimeModulation = 0.003 + (0.002 * inModBuffer[i]);
+            mTimeSmoothed = mTimeSmoothed - KParameterSmoothingCoeff_Fine * (mTimeSmoothed - delayTimeModulation);
+        }
         
         const double delayTimeSamples = (mTimeSmoothed * mSampleRate);
         

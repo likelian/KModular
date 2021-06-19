@@ -8,6 +8,7 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include "KM_Parameters.h"
 
 //==============================================================================
 NewProjectAudioProcessor::NewProjectAudioProcessor()
@@ -19,9 +20,12 @@ NewProjectAudioProcessor::NewProjectAudioProcessor()
                       #endif
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       )
+                       ),
+    parameters(*this, nullptr)
 #endif
 {
+    InitializeParameters();
+    
     InitializeDSP();
 }
 
@@ -161,27 +165,38 @@ void NewProjectAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, j
     {
         auto* channelData = buffer.getWritePointer (channel);
         
-        mGain[channel]->process(channelData,
-                                0.5,
+        mInputGain[channel]->process(channelData,
+                                getParameter(KParameter_InputGain),
+                                //0.5f,
                                 channelData,
                                 buffer.getNumSamples());
         
-        float rate = (channel==1) ? 0 : 0.25; //if mono, 0, else, 0.25
+        float rate = (channel==1) ? 0 : getParameter(KParameter_ModulationRate); //if mono, 0, else, 0.25
         
         mLFO[channel]->process(rate,
-                               0.5,
+                               //0.5f,
+                               getParameter(KParameter_ModulationDepth),
+                               //0.5f,
                                buffer.getNumSamples());
         
         mDelay[channel]->process(channelData,
-                                 0.25,
-                                 0.2,
-                                 0.5,
+                                 getParameter(KParameter_DelayTime),
+                                 //0.5f,
+                                 getParameter(KParameter_DelayFeedback),
+                                 //0.5f,
+                                 getParameter(KParameter_DelayWetDry),
+                                 //0.5f,
+                                 getParameter(KParameter_DelayType),
                                  mLFO[channel]->getBuffer(),
                                  channelData,
                                  buffer.getNumSamples());
         
-        
-        // ..do something to the data...
+        mOutputGain[channel]->process(channelData,
+                                getParameter(KParameter_OutputGain),
+                                //0.5f,
+                                channelData,
+                                buffer.getNumSamples());
+
     }
 }
 
@@ -214,10 +229,26 @@ void NewProjectAudioProcessor::setStateInformation (const void* data, int sizeIn
 void NewProjectAudioProcessor::InitializeDSP()
 {
     for(int i = 0; i < 2; i++){  //stereo for now
-        mGain[i] = std::unique_ptr<KM_gain>(new KM_gain);
+        mInputGain[i] = std::unique_ptr<KM_gain>(new KM_gain);
+        mOutputGain[i] = std::unique_ptr<KM_gain>(new KM_gain);
         mDelay[i] = std::unique_ptr<KM_delay>(new KM_delay);
         mLFO[i] = std::unique_ptr<KM_LFO>(new KM_LFO);
     }
+}
+
+void NewProjectAudioProcessor::InitializeParameters()
+{
+    for (int i = 0; i < KParameter_TotalNumParameters; i++){
+
+        parameters.createAndAddParameter(KM_ParamterID[i],
+                                         KM_ParamterID[i],
+                                         KM_ParamterID[i],
+                                         juce::NormalisableRange<float>(0.0f, 1.0f),
+                                         0.5f,
+                                         nullptr,
+                                         nullptr);
+    }
+    parameters.state = juce::ValueTree("foo");
 }
 
 //==============================================================================

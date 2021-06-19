@@ -26,6 +26,6 @@ void KM_PanelBase:: paint(juce::Graphics& g)
     g.fillAll();
     
     g.setColour(juce::Colours::black);
-    g.drawRect(1, 1, getWidth()-1, getHeight()-1, 2);
+    g.drawRect(0, 0, getWidth(), getHeight(), 2);
     
 }

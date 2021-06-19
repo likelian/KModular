@@ -3,6 +3,16 @@
 <JUCERPROJECT id="Q2CIIC" name="KModular" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="bxNTae" name="KModular">
+    <GROUP id="{86B37476-1E84-3D94-D5A1-2413BCAB6738}" name="Parameter Control">
+      <FILE id="z3PNPp" name="KM_ParameterComboBox.cpp" compile="1" resource="0"
+            file="Source/KM_ParameterComboBox.cpp"/>
+      <FILE id="BlJGid" name="KM_ParameterComboBox.h" compile="0" resource="0"
+            file="Source/KM_ParameterComboBox.h"/>
+      <FILE id="jjo24t" name="KM_ParameterSlider.cpp" compile="1" resource="0"
+            file="Source/KM_ParameterSlider.cpp"/>
+      <FILE id="efW5LD" name="KM_ParameterSlider.h" compile="0" resource="0"
+            file="Source/KM_ParameterSlider.h"/>
+    </GROUP>
     <GROUP id="{7AF13855-0DE5-B7A6-43CD-8EB57E9FF641}" name="Panel">
       <FILE id="mjsapW" name="KM_CenterPanel.cpp" compile="1" resource="0"
             file="Source/KM_CenterPanel.cpp"/>
@@ -27,8 +37,11 @@
       <FILE id="HBq7i2" name="KM_TopPanel.h" compile="0" resource="0" file="Source/KM_TopPanel.h"/>
     </GROUP>
     <GROUP id="{60CA75C9-3999-6790-B3C9-B3B6B9A4B2DF}" name="Helper">
+      <FILE id="fCqCAl" name="KM_HelperFunctions.h" compile="0" resource="0"
+            file="Source/KM_HelperFunctions.h"/>
       <FILE id="VB1Tq8" name="KM_InterfaceDefines.h" compile="0" resource="0"
             file="Source/KM_InterfaceDefines.h"/>
+      <FILE id="h9GfLP" name="KM_Parameters.h" compile="0" resource="0" file="Source/KM_Parameters.h"/>
       <FILE id="ZyEI53" name="KModular_helper.h" compile="0" resource="0"
             file="Source/KModular_helper.h"/>
     </GROUP>

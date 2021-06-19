@@ -12,6 +12,11 @@
 
 #include "KM_helper.h"
 
+enum KM_DelayType{
+    KM_DelayType_Delay = 0,
+    KM_DelayType_CHorus
+};
+
 class KM_delay
 {
 public:
@@ -26,6 +31,7 @@ public:
                  float inTime,
                  float inFeedback,
                  float inWetDry,
+                 float inType,
                  float* inModBuffer,
                  float* outAudio,
                  int inNumSamplesToRender

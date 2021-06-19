@@ -9,3 +9,17 @@
 */
 
 #pragma once
+#include "KM_PanelBase.h"
+
+
+class KM_TopPanel
+: public KM_PanelBase
+{
+public:
+    KM_TopPanel(NewProjectAudioProcessor* inProcessor);
+    ~KM_TopPanel();
+    
+    void paint(juce::Graphics& g) override;
+
+private:
+};

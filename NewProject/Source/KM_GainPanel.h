@@ -9,3 +9,21 @@
 */
 
 #pragma once
+#include "KM_PanelBase.h"
+#include "KM_ParameterSlider.h"
+
+
+class KM_GainPanel
+: public KM_PanelBase
+{
+public:
+    KM_GainPanel(NewProjectAudioProcessor* inProcessor);
+    ~KM_GainPanel();
+    
+    void setParameterID(int inParameterID);
+    void paint(juce::Graphics& g) override;
+
+private:
+    juce::ScopedPointer<KM_ParameterSlider> mSlider;
+    //std::unique_ptr<KM_ParameterSlider> mSlider;
+};
