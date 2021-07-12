@@ -3,6 +3,12 @@
 <JUCERPROJECT id="Q2CIIC" name="KModular" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="bxNTae" name="KModular">
+    <GROUP id="{998CDAF1-3839-FBB6-F452-07D4B125BEDF}" name="Managers">
+      <FILE id="SLEX0W" name="KM_PresentManager.cpp" compile="1" resource="0"
+            file="Source/KM_PresentManager.cpp"/>
+      <FILE id="WFsVSv" name="KM_PresentManager.h" compile="0" resource="0"
+            file="Source/KM_PresentManager.h"/>
+    </GROUP>
     <GROUP id="{86B37476-1E84-3D94-D5A1-2413BCAB6738}" name="Parameter Control">
       <FILE id="z3PNPp" name="KM_ParameterComboBox.cpp" compile="1" resource="0"
             file="Source/KM_ParameterComboBox.cpp"/>

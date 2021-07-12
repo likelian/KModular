@@ -27,10 +27,14 @@ NewProjectAudioProcessor::NewProjectAudioProcessor()
     InitializeParameters();
     
     InitializeDSP();
+    
+    mPresetManager = std::make_unique<KM_PresentManager>(this);
+    
 }
 
 NewProjectAudioProcessor::~NewProjectAudioProcessor()
 {
+    
 }
 
 //==============================================================================
@@ -217,12 +221,33 @@ void NewProjectAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
     // as intermediaries to make it easy to save and load complex data.
+    
+    
+    juce::XmlElement preset("KM_StateInfo");
+    juce::XmlElement* presetBody = new juce::XmlElement("KM_preset");
+    mPresetManager->getXmlForPreset(presetBody);
+    
+    preset.addChildElement(presetBody);
+    
+    copyXmlToBinary(preset, destData);
 }
 
 void NewProjectAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
+    
+    std::unique_ptr<juce::XmlElement> xmlState = getXmlFromBinary(data, sizeInBytes);
+    
+    if(xmlState){
+        forEachXmlChildElement(*xmlState, subchild){
+            mPresetManager->loadPresetForXml(subchild);
+        }
+    }
+    else{
+        jassertfalse; //crash if xmlState is null;
+    }
+    
 }
 
 
@@ -242,7 +267,7 @@ void NewProjectAudioProcessor::InitializeParameters()
 
         parameters.createAndAddParameter(KM_ParamterID[i],
                                          KM_ParamterID[i],
-                                         KM_ParamterID[i],
+                                         KM_ParamterID_Space[i],
                                          juce::NormalisableRange<float>(0.0f, 1.0f),
                                          0.5f,
                                          nullptr,
@@ -256,4 +281,11 @@ void NewProjectAudioProcessor::InitializeParameters()
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new NewProjectAudioProcessor();
+}
+
+
+
+KM_PresentManager* NewProjectAudioProcessor::getPresetManager()
+{
+    return mPresetManager.get();
 }

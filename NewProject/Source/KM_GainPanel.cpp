@@ -26,7 +26,7 @@ KM_GainPanel::~KM_GainPanel()
 
 void KM_GainPanel::setParameterID(int inParameterID)
 {
-    mSlider = new KM_ParameterSlider(mProcessor->parameters, KM_ParamterID[inParameterID]);
+    mSlider = new KM_ParameterSlider(mProcessor->parameters, KM_ParamterID[inParameterID], KM_ParamterID_Space[inParameterID]);
     
     const int slider_size = 54;
     mSlider->setBounds((getWidth()-slider_size)*0.5,

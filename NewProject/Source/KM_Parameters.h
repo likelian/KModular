@@ -25,6 +25,18 @@ enum KM_Parameter
 
 static juce::String KM_ParamterID [KParameter_TotalNumParameters] =
 {
+    "Input_Gain",
+    "Delay_Time",
+    "Delay_Feedback",
+    "Wet_Dry",
+    "Delay_Type",
+    "Output_Gain",
+    "Modulation_Rate",
+    "Modulation_Depth"
+};
+
+static juce::String KM_ParamterID_Space [KParameter_TotalNumParameters] =
+{
     "Input Gain",
     "Delay Time",
     "Delay Feedback",

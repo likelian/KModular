@@ -14,6 +14,8 @@
 #include "KM_delay.h"
 #include "KM_LFO.h"
 
+#include "KM_PresentManager.h"
+
 
 
 //==============================================================================
@@ -59,7 +61,20 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
     
+    
+
+    KM_PresentManager* getPresetManager();
+    
     juce::AudioProcessorValueTreeState parameters;
+    
+    
+    //std::unique_ptr<KM_PresentManager> getPresetManager()
+    //{
+    //    return std::move(mPresetManager);
+        //return mPresetManager;
+    //}
+    
+
 
 private:
     /** internal function */
@@ -75,6 +90,9 @@ private:
     std::unique_ptr<KM_gain> mOutputGain [2];
     std::unique_ptr<KM_LFO> mLFO [2];
     std::unique_ptr<KM_delay> mDelay [2];
+    
+    std::unique_ptr<KM_PresentManager> mPresetManager;
+    //juce::ScopedPointer<KM_PresentManager> mPresetManager;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NewProjectAudioProcessor)

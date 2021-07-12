@@ -77,7 +77,8 @@ void KM_FxPanel::setFxPanelStyle(KM_FxPanelStyle inStyle)
         case(KM_FxPanelStyle_Delay):
         {
             KM_ParameterSlider* time = new KM_ParameterSlider(mProcessor->parameters,
-                                                              KM_ParamterID[KParameter_DelayTime]);
+                                                              KM_ParamterID[KParameter_DelayTime],
+                                                              KM_ParamterID_Space[KParameter_DelayTime]);
             time->setBounds(x, y, slider_size, slider_size);
             addAndMakeVisible(time);
             mSliders.add(time);
@@ -85,7 +86,8 @@ void KM_FxPanel::setFxPanelStyle(KM_FxPanelStyle inStyle)
             
             
             KM_ParameterSlider* feedback = new KM_ParameterSlider(mProcessor->parameters,
-                                                            KM_ParamterID[KParameter_DelayFeedback]);
+                                                            KM_ParamterID[KParameter_DelayFeedback],
+                                                            KM_ParamterID_Space[KParameter_DelayFeedback]);
             feedback->setBounds(x, y, slider_size, slider_size);
             addAndMakeVisible(feedback);
             mSliders.add(feedback);
@@ -93,7 +95,8 @@ void KM_FxPanel::setFxPanelStyle(KM_FxPanelStyle inStyle)
             
             
             KM_ParameterSlider* wetDry = new KM_ParameterSlider(mProcessor->parameters,
-                                                                KM_ParamterID[KParameter_DelayWetDry]);
+                                                                KM_ParamterID[KParameter_DelayWetDry],
+                                                                KM_ParamterID_Space[KParameter_DelayWetDry]);
             wetDry->setBounds(x, y, slider_size, slider_size);
             addAndMakeVisible(wetDry);
             mSliders.add(wetDry);
@@ -103,7 +106,9 @@ void KM_FxPanel::setFxPanelStyle(KM_FxPanelStyle inStyle)
         case(KM_FxPanelStyle_chorus):
         {
             KM_ParameterSlider* rate = new KM_ParameterSlider(mProcessor->parameters,
-                                                              KM_ParamterID[ KParameter_ModulationRate]);
+                                                              KM_ParamterID[ KParameter_ModulationRate],
+                                                            KM_ParamterID_Space[KParameter_ModulationRate]
+                                                              );
             rate->setBounds(x, y, slider_size, slider_size);
             addAndMakeVisible(rate);
             mSliders.add(rate);
@@ -111,14 +116,16 @@ void KM_FxPanel::setFxPanelStyle(KM_FxPanelStyle inStyle)
             
             
             KM_ParameterSlider* depth = new KM_ParameterSlider(mProcessor->parameters,
-                                                              KM_ParamterID[ KParameter_ModulationDepth]);
+                                                              KM_ParamterID[ KParameter_ModulationDepth],
+                                                               KM_ParamterID_Space[KParameter_ModulationDepth]);
             depth->setBounds(x, y, slider_size, slider_size);
             addAndMakeVisible(depth);
             mSliders.add(depth);
             x += slider_size * 2;
             
             KM_ParameterSlider* wetDry = new KM_ParameterSlider(mProcessor->parameters,
-                                                                KM_ParamterID[ KParameter_DelayWetDry]);
+                                                                KM_ParamterID[KParameter_DelayWetDry],
+                                                                KM_ParamterID_Space[KParameter_DelayWetDry]);
             wetDry->setBounds(x, y, slider_size, slider_size);
             addAndMakeVisible(wetDry);
             mSliders.add(wetDry);

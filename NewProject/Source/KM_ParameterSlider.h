@@ -17,7 +17,8 @@ class KM_ParameterSlider
 {
 public:
     KM_ParameterSlider(juce::AudioProcessorValueTreeState& stateToControl,
-                       const juce::String& parameterID);
+                       const juce::String& KM_ParamterID,
+                       const juce::String& KM_ParamterID_Space);
     
     ~KM_ParameterSlider();
     
