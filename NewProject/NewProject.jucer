@@ -73,10 +73,10 @@
             file="Source/PluginEditor.cpp"/>
       <FILE id="s3CLGz" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
-    <GROUP id="{845AD499-3305-ACD4-7A50-CB9979B74C05}" name="Assets">
-      <FILE id="da5vHw" name="kadenze_bg.png" compile="0" resource="1" file="../../../Desktop/KadenzeAudioPlugin v6.0.8/Assets/kadenze_bg.png"/>
-      <FILE id="fpMSYE" name="kadenze_knob.png" compile="0" resource="1"
-            file="../../../Desktop/KadenzeAudioPlugin v6.0.8/Assets/kadenze_knob.png"/>
+    <GROUP id="{BE919ADC-DB8F-DE78-9258-24A2AA0813C2}" name="Assets">
+      <FILE id="E7slSq" name="kadenze_bg.png" compile="0" resource="1" file="Assets/kadenze_bg.png"/>
+      <FILE id="HanF9x" name="kadenze_knob.png" compile="0" resource="1"
+            file="Assets/kadenze_knob.png"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
