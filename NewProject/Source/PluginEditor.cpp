@@ -9,6 +9,8 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+#include "KM_LookAndFeel.h"
+
 
 //==============================================================================
 NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor (NewProjectAudioProcessor& p)
@@ -21,22 +23,28 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor (NewProjectAudioP
     
     mMainPanel = new KM_MainPanel(&audioProcessor);
     addAndMakeVisible(mMainPanel);
-
+    
+    //mLookAndFeel = std::unique_ptr<KM_LookAndFeel>(new KM_LookAndFeel);
+    //auto mLookAndFeel = std::make_unique<KM_LookAndFeel>();
+    //mLookAndFeel = std::make_unique<KM_LookAndFeel>(&processor);
+    
+    mLookAndFeel = new KM_LookAndFeel();
+    setLookAndFeel(mLookAndFeel);
+    juce::LookAndFeel::setDefaultLookAndFeel(mLookAndFeel);
+    
+    mBackgroundImage = juce::ImageCache::getFromMemory(BinaryData::kadenze_bg_png, BinaryData::kadenze_bg_pngSize);
 }
 
 NewProjectAudioProcessorEditor::~NewProjectAudioProcessorEditor()
 {
+    setLookAndFeel(nullptr);
 }
 
 //==============================================================================
 void NewProjectAudioProcessorEditor::paint (juce::Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-
-    g.setColour (juce::Colours::white);
-    g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
+    g.drawImage(mBackgroundImage, getLocalBounds().toFloat());
+    
 }
 
 void NewProjectAudioProcessorEditor::resized()

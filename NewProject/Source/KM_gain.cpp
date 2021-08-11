@@ -10,10 +10,12 @@
 
 #include "KM_gain.h"
 #include "JuceHeader.h"
+#include "KM_Helper.h"
 
 
 
 KM_gain::KM_gain()//constructor
+: mOutputSmoothed(0)
 {
     
 };
@@ -36,4 +38,12 @@ void KM_gain::process(float* inAudio,
     for (int i = 0; i < inNumSamplesToRender; i++){
         outAudio[i] = inAudio[i] * gainMapped;
     };
+    
+    float absValue = fabs(outAudio[0]);
+    mOutputSmoothed = KMeterSmoothingCoeff * (mOutputSmoothed - absValue) + absValue;
+};
+
+float KM_gain::getMeterLevel()
+{
+    return mOutputSmoothed;
 };

@@ -62,6 +62,8 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
     
     
+    float getInputMeterLevel(int inChannel);
+    float getOutputMeterLevel(int inChannel);
 
     KM_PresentManager* getPresetManager();
     

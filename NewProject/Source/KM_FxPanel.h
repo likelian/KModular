@@ -28,7 +28,7 @@ public:
     KM_FxPanel(NewProjectAudioProcessor* inProcessor);
     ~KM_FxPanel();
     
-    void paint(juce::Graphics& g);
+    void paint(juce::Graphics& g) override;
     void setFxPanelStyle(KM_FxPanelStyle inStyle);
     void comboBoxChanged (juce::ComboBox* comboBoxThatHasChanged) override;
 

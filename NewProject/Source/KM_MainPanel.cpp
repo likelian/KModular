@@ -12,6 +12,7 @@
 #include "KM_Parameters.h"
 
 
+
 KM_MainPanel::KM_MainPanel(NewProjectAudioProcessor* inProcessor)
 :   KM_PanelBase(inProcessor)
 {
@@ -35,6 +36,10 @@ KM_MainPanel::KM_MainPanel(NewProjectAudioProcessor* inProcessor)
     mCenterPanel = new KM_CenterPanel(inProcessor);
     mCenterPanel->setTopLeftPosition(GAIN_PANEL_WIDTH, TOP_PANEL_HEIGHT);
     addAndMakeVisible(mCenterPanel);
+
+    
+    
+    
     
 }
 

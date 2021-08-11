@@ -22,5 +22,10 @@ public:
                  float* outAudio,
                  int inNumSamplesToRender //block size
                  );//process functinon
+    
+    float getMeterLevel();
+
 private:
+    float mOutputSmoothed;
+    
 };

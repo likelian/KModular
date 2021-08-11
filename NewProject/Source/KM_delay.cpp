@@ -104,8 +104,8 @@ void KM_delay::process(float* inAudio,
 double KM_delay::getInterpolatedSample(float inDelayTimeInSamples)
 {
     double readPosition = (double)mDelayIndex - inDelayTimeInSamples;
-    if (readPosition < 0.0f){
-        readPosition = readPosition + maxBufferDelaySize;
+    if (readPosition < 0.f){
+        readPosition = readPosition + (double) maxBufferDelaySize;
     };
     
     int index_y0 = (int)readPosition - 1;

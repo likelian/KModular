@@ -62,7 +62,12 @@ void KM_TopPanel::paint(juce::Graphics& g)
 {
     KM_PanelBase::paint(g);
     
-    g.drawFittedText("Kadenze Audio Plugin", 0, 0, getWidth()-10, getHeight(), juce::Justification::centredRight, 1);
+    g.setColour(KMColour_1);
+    g.setFont(font_2);
+    
+    const int label_w = 300;
+    
+    g.drawFittedText("Kadenze Audio Plugin", TOP_PANEL_WIDTH - label_w - 20, 0, label_w, getHeight(), juce::Justification::centredRight, 1);
     
 }
 

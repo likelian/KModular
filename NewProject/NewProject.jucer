@@ -3,6 +3,10 @@
 <JUCERPROJECT id="Q2CIIC" name="KModular" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="bxNTae" name="KModular">
+    <GROUP id="{C8D6A7AB-AD68-9A75-1DD7-48C73257E460}" name="Components">
+      <FILE id="vMs4lA" name="KM_VuMeter.cpp" compile="1" resource="0" file="Source/KM_VuMeter.cpp"/>
+      <FILE id="m7hZUi" name="KM_VuMeter.h" compile="0" resource="0" file="Source/KM_VuMeter.h"/>
+    </GROUP>
     <GROUP id="{998CDAF1-3839-FBB6-F452-07D4B125BEDF}" name="Managers">
       <FILE id="SLEX0W" name="KM_PresentManager.cpp" compile="1" resource="0"
             file="Source/KM_PresentManager.cpp"/>
@@ -45,11 +49,12 @@
     <GROUP id="{60CA75C9-3999-6790-B3C9-B3B6B9A4B2DF}" name="Helper">
       <FILE id="fCqCAl" name="KM_HelperFunctions.h" compile="0" resource="0"
             file="Source/KM_HelperFunctions.h"/>
+      <FILE id="wxboUT" name="KM_helper.h" compile="0" resource="0" file="Source/KM_helper.h"/>
       <FILE id="VB1Tq8" name="KM_InterfaceDefines.h" compile="0" resource="0"
             file="Source/KM_InterfaceDefines.h"/>
+      <FILE id="oXrkjn" name="KM_LookAndFeel.h" compile="0" resource="0"
+            file="Source/KM_LookAndFeel.h"/>
       <FILE id="h9GfLP" name="KM_Parameters.h" compile="0" resource="0" file="Source/KM_Parameters.h"/>
-      <FILE id="ZyEI53" name="KModular_helper.h" compile="0" resource="0"
-            file="Source/KModular_helper.h"/>
     </GROUP>
     <GROUP id="{D6B08AA8-5118-0970-250F-DC7C6A0585D1}" name="DSP">
       <FILE id="uc3vU5" name="KM_delay.cpp" compile="1" resource="0" file="Source/KM_delay.cpp"/>
@@ -67,6 +72,11 @@
       <FILE id="L1xdxf" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
       <FILE id="s3CLGz" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+    <GROUP id="{845AD499-3305-ACD4-7A50-CB9979B74C05}" name="Assets">
+      <FILE id="da5vHw" name="kadenze_bg.png" compile="0" resource="1" file="../../../Desktop/KadenzeAudioPlugin v6.0.8/Assets/kadenze_bg.png"/>
+      <FILE id="fpMSYE" name="kadenze_knob.png" compile="0" resource="1"
+            file="../../../Desktop/KadenzeAudioPlugin v6.0.8/Assets/kadenze_knob.png"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

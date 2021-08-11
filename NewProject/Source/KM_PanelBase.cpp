@@ -9,6 +9,7 @@
 */
 
 #include "KM_PanelBase.h"
+#include "KM_InterfaceDefines.h"
 
 KM_PanelBase::KM_PanelBase(NewProjectAudioProcessor* inProcessor)
 : mProcessor(inProcessor)
@@ -19,14 +20,28 @@ KM_PanelBase::KM_PanelBase(NewProjectAudioProcessor* inProcessor)
 KM_PanelBase::~KM_PanelBase(){}
 
 
-
-void KM_PanelBase:: paint(juce::Graphics& g)
+void KM_PanelBase::mouseEnter (const juce::MouseEvent& event)
 {
-    g.setColour(juce::Colours::whitesmoke);
-    g.fillAll();
+    repaint();
+}
+
+void KM_PanelBase::mouseExit (const juce::MouseEvent& event)
+{
+    repaint();
+}
+
+
+void KM_PanelBase::paint(juce::Graphics& g)
+{
     
-    g.setColour(juce::Colours::black);
-    //g.drawRect(0, 0, getWidth(), getHeight(), 2);
-    g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 2);
+//    if(isMouseOver()){
+//        g.setColour(KMColour_4);
+//        g.fillAll();
+//    }
     
+//    g.setColour(juce::Colours::whitesmoke);
+//    g.fillAll();
+//
+//    g.setColour(juce::Colours::black);
+//    g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 2);
 }

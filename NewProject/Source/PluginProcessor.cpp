@@ -251,6 +251,22 @@ void NewProjectAudioProcessor::setStateInformation (const void* data, int sizeIn
 }
 
 
+float NewProjectAudioProcessor::getInputMeterLevel(int inChannel)
+{
+    const float normalizeddB = dBToNormalizedGain(mInputGain[inChannel]->getMeterLevel());
+    
+    return normalizeddB;
+}
+
+
+float NewProjectAudioProcessor::getOutputMeterLevel(int inChannel)
+{
+    const float normalizeddB = dBToNormalizedGain(mOutputGain[inChannel]->getMeterLevel());
+    
+    return normalizeddB;
+}
+
+
 void NewProjectAudioProcessor::InitializeDSP()
 {
     for(int i = 0; i < 2; i++){  //stereo for now

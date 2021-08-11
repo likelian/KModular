@@ -36,15 +36,18 @@ void KM_FxPanel::paint(juce::Graphics& g)
 {
     KM_PanelBase::paint(g);
     
+    
+    juce::String label;
+    
     switch (mStyle){
         case(KM_FxPanelStyle_Delay):
         {
-            g.drawFittedText("DELAY", -7, -40, getWidth(), getHeight(), juce::Justification::centred, 1);
+            label = "DELAY";
         } break;
     
         case(KM_FxPanelStyle_chorus):
         {
-            g.drawFittedText("CHORUS", -7, -40, getWidth(), getHeight(), juce::Justification::centred, 1);
+            label = "CHORUS";
         } break;
         
         default:
@@ -53,6 +56,12 @@ void KM_FxPanel::paint(juce::Graphics& g)
             jassertfalse; //juce error assert
         } break;
     }
+    
+    g.setColour(KMColour_5);
+    g.setFont(font_3);
+    g.drawText(label, 0, 0, getWidth(), 80, juce::Justification::centred);
+    
+    
     
     //paint labels
     for (int i = 0; i < mSliders.size(); i++){

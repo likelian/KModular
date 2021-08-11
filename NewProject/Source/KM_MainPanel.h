@@ -17,6 +17,7 @@
 
 
 
+
 class KM_MainPanel
 : public KM_PanelBase
 {
@@ -29,5 +30,6 @@ private:
     juce::ScopedPointer<KM_GainPanel> mInputGainPanel;
     juce::ScopedPointer<KM_GainPanel> mOutputGainPanel;
     juce::ScopedPointer<KM_CenterPanel> mCenterPanel;
+    
 
 };

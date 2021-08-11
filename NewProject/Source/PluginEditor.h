@@ -12,6 +12,7 @@
 #include "PluginProcessor.h"
 
 #include "KM_MainPanel.h"
+#include "KM_LookAndFeel.h"
 
 
 //==============================================================================
@@ -33,6 +34,10 @@ private:
     NewProjectAudioProcessor& audioProcessor;
     
     juce::ScopedPointer<KM_MainPanel> mMainPanel;
+    
+    juce::ScopedPointer<KM_LookAndFeel> mLookAndFeel;
+    
+    juce::Image mBackgroundImage;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NewProjectAudioProcessorEditor)
 };

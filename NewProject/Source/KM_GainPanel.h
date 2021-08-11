@@ -11,6 +11,7 @@
 #pragma once
 #include "KM_PanelBase.h"
 #include "KM_ParameterSlider.h"
+#include "KM_VuMeter.h"
 
 
 class KM_GainPanel
@@ -26,4 +27,6 @@ public:
 private:
     juce::ScopedPointer<KM_ParameterSlider> mSlider;
     //std::unique_ptr<KM_ParameterSlider> mSlider;
+    
+    std::unique_ptr<KM_VuMeter> mKM_VuMeter;
 };
